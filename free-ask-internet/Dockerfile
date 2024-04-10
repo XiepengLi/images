@@ -13,5 +13,6 @@ RUN echo "127.0.0.1 freegpt35" >> /etc/hosts
 RUN echo "127.0.0.1 backend" >> /etc/hosts
 RUN echo "127.0.0.1 searxng" >> /etc/hosts
 EXPOSE 3000
+EXPOSE 3040
 ENTRYPOINT []
 CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
