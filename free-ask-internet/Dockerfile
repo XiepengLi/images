@@ -12,5 +12,6 @@ COPY free-ask-internet/supervisor.d /etc/supervisor.d
 COPY free-ask-internet/hosts /etc/hosts
 EXPOSE 3000
 EXPOSE 3040
+EXPOSE 8000
 ENTRYPOINT []
 CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
