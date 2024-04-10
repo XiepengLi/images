@@ -9,9 +9,7 @@ RUN cp -r /app/free-ask-internet/searxng /etc/searxng
 RUN cd /app/free-ask-internet && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt --no-cache-dir
 COPY free-ask-internet/supervisord.conf /etc/supervisord.conf
 COPY free-ask-internet/supervisor.d /etc/supervisor.d
-RUN echo "127.0.0.1 freegpt35" >> /etc/hosts
-RUN echo "127.0.0.1 backend" >> /etc/hosts
-RUN echo "127.0.0.1 searxng" >> /etc/hosts
+COPY free-ask-internet/hosts /etc/hosts
 EXPOSE 3000
 EXPOSE 3040
 ENTRYPOINT []
