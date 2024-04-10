@@ -7,8 +7,8 @@ COPY --from=chat /app /app/chatgpt-next-web
 RUN git clone --depth=1 https://github.com/nashsu/FreeAskInternet.git /app/free-ask-internet 
 RUN cp -r /app/free-ask-internet/searxng /etc/searxng
 RUN cd /app/free-ask-internet && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt --no-cache-dir
-COPY supervisord.conf /etc/supervisord.conf
-COPY supervisor.d /etc/supervisor.d
+COPY free-ask-internet/supervisord.conf /etc/supervisord.conf
+COPY free-ask-internet/supervisor.d /etc/supervisor.d
 EXPOSE 3000
 ENTRYPOINT []
 CMD ["/usr/bin/supervisord","-c","/etc/supervisord.conf"]
